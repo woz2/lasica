@@ -3,8 +3,7 @@ Welcome to Lasica.
 This is a project made as an assignment for the Server Side Technologies lecture; a part of the Postgraduate Web Technologies Course on The National college of Ireland; 2012-2013.
 This project is created and developed by Anna and Tomasz.
 
-She dose not have GitHub configured yet.
-
+Enjoy your time with our project!
 
 Underneeth you will find a generic Rails readme-file text.
 
