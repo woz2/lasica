@@ -10,7 +10,6 @@
 
 | <%= link_to "Available Games", products_path %> |
 <%= link_to "Home", :controller => "menu", :action => "home" %> |
-<%= link_to "Registration", new_user_path %> |
 <%= link_to "Account", :controller => "menu", :action => "my_account" %> |
 <%= link_to "Cart", :controller => "menu", :action => "my_cart" %> |
 <%= link_to "News", :controller => "menu", :action => "news" %> |
@@ -22,6 +21,7 @@
       <%= link_to 'Logout', logout_path %> |
   <% else %>
       <%= link_to "Login", login_path %> |
+      <%= link_to "Registration", new_user_path %> |
   <% end %>
 </div>
 

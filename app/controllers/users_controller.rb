@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :is_admin?
+  #before_filter :is_admin?
 
   def new
     @user = User.new
