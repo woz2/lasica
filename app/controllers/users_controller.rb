@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  #before_filter :is_admin?
 
   def new
     @user = User.new
@@ -15,6 +14,17 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    if is_admin? then @users = User.all
+    end
+  end
+
+  def destroy
+    @users = User.find(params[:id])
+    @users.destroy
+
+    respond_to do |format|
+      format.html { redirect_to users_url }
+      format.json { head :no_content }
+    end
   end
 end
