@@ -2,6 +2,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   protected
+
+  helper_method :is_admin?
+  def is_admin?
+    if current_user and (current_user.admin == true)
+      return true
+    else
+      access_denied
+    end
+  end
+
 # Returns the currently logged in user or nil if there isn't one
   def current_user
     return unless session[:user_id]

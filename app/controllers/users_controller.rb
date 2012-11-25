@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :is_admin?
+
   def new
     @user = User.new
   end
@@ -10,5 +12,9 @@ class UsersController < ApplicationController
     else
       render :action => 'new'
     end
+  end
+
+  def index
+    @users = User.all
   end
 end
