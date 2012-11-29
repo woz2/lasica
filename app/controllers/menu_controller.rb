@@ -10,4 +10,5 @@ class MenuController < ApplicationController
 
   def news
   end
+
 end

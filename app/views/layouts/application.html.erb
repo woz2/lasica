@@ -8,6 +8,22 @@
 </head>
 <body>
 
+<div id='welcome'>
+  <% if logged_in? %>
+      <p>Welcome <%= current_user.email %> |</p>
+      <%= button_to 'My_account', my_account_url %>
+      <% if is_admin? %>
+          <%= button_to 'Users', users_url, method: :get %>
+          <%= button_to 'Orders', orders_url, method: :get %>
+      <% end %>
+      <%= button_to 'Logout', logout_path %>
+  <% else %>
+      Hello, <%= button_to 'Create an account', new_user_url, method: :get%>
+      <%= button_to 'Login', login_path %>
+  <% end %>
+</div>
+
+
 | <%= link_to "Available Games", products_path %> |
 <%= link_to "Home", :controller => "menu", :action => "home" %> |
 <%= link_to "Account", :controller => "menu", :action => "my_account" %> |
@@ -23,7 +39,6 @@
       <%= link_to "Registration", new_user_path %> |
   <% end %>
 </div>
-
 
 <%= yield %>
 
