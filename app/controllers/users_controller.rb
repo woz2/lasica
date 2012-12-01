@@ -7,9 +7,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      session[:user_id] = @user.id
+
       if is_admin? then
         redirect_to users_path, :notice => 'User has been successfully created.'
-      elsif redirect_to login_path, :notice => 'Now please log-in and your adventure begins!'
+      elsif redirect_to products_path, :notice => "Great, your adventure begins!"
       end
     else
       render :action => 'new'

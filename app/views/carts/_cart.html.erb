@@ -4,7 +4,7 @@
 
 <div class="cart_title">Your Cart</div>
 <table>
-  <% @cart.line_items.each do |item| %>
+  <% cart.line_items.each do |item| %>
       <tr>
         <td> <%= item.quantity %> &times;</td>
         <td> <%= item.product.name %></td>
@@ -13,7 +13,7 @@
   <% end %>
   <tr class="total_line " >
     <td colspan="2">Total</td>
-    <td class="total_cell"><%= number_to_currency(@cart.total_price, :unit => '&euro;') %></td>
+    <td class="total_cell"><%= number_to_currency(cart.total_price, :unit => '&euro;') %></td>
   </tr>
 </table>
 
