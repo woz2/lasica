@@ -13,49 +13,9 @@
 
 <div id="columns">
 
-  <div id="side">
+  <%= render :partial => 'layouts/left_nav' %>
 
-    <div id="cart">
-      <%= render :partial => 'carts/cart', :locals =>  { :cart => current_cart} %>
-    </div>
-
-    <ul>
-      <li> <%= link_to "Available Games", products_path %> </li>
-      <li> <%= link_to "Home", :controller => "menu", :action => "home" %></li>
-      <li> <%= link_to "Account", :controller => "menu", :action => "my_account" %></li>
-      <li> <%= link_to "Cart", :controller => "menu", :action => "my_cart" %></li>
-      <li> <%= link_to "News", :controller => "menu", :action => "news" %></li>
-      <li> <%= link_to "Your Cart", :controller => "carts", :action => "your_cart" %></li>
-    </ul>
-
-  </div>
-
-  <div id='header'>
-    <% if logged_in? %>
-        <p>Welcome <%= current_user.email %> |</p>
-        <%= button_to 'My_account', my_account_url %>
-        <% if is_admin? %>
-            <%= button_to 'Users', users_url, method: :get %>
-            <%= button_to 'Orders', orders_url, method: :get %>
-        <% end %>
-        <%= button_to 'Logout', logout_path %>
-    <% else %>
-        Hello, <%= button_to 'Create an account', new_user_url, method: :get%>
-        <%= form_tag sessions_path do %>
-            <div class="field">
-              <%= label_tag :email %><br />
-              <%= text_field_tag :email %>
-            </div>
-            <div class="field">
-              <%= label_tag :password %><br />
-              <%= password_field_tag :password %>
-            </div>
-            <div class="actions">
-              <%= submit_tag 'Login' %>
-            </div>
-        <% end %>
-    <% end %>
-  </div>
+  <%= render :partial => 'layouts/header' %>
 
 
   <div id="main">
