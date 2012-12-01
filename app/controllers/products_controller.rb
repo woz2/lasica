@@ -7,10 +7,14 @@ class ProductsController < ApplicationController
   def index
     @products = Product.search(params[:search_query])
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
     end
+
+    @cart =current_cart
+
   end
 
   # GET /products/1

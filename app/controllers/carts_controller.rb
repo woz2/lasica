@@ -19,7 +19,7 @@ class CartsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @cart }
     end
-  end
+end
 
   def your_cart
     redirect_to :action => "show", :id => current_cart.id
