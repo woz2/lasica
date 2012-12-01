@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
     if current_user and (current_user.admin == true)
       return true
     else
-      access_denied
+      return false
+      #access_denied
     end
   end
 

@@ -7,26 +7,20 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to products_path, :notice => 'You have successfully signed up to Lasica. Your adventure begins!'
+      if is_admin? then
+        redirect_to users_path, :notice => 'User has been successfully created.'
+      elsif redirect_to login_path, :notice => 'Now please log-in and your adventure begins!'
+      end
     else
       render :action => 'new'
     end
   end
 
-  #def create
-  # @user = User.new(params[:user])
-  #if @user.save
-  #if is_admin? then redirect_to users_path, :notice => 'User has been successfully created.'
-  #elsif redirect_to products_path, :notice => 'You have successfully signed up to Lasica. Your adventure begins!'
-  #end
-  #else
-  #render :action => 'new'
-  #end
-  #end
-
   def index
     if is_admin? then
       @users = User.all
+    else
+      redirect_to root_path
     end
   end
 
