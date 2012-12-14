@@ -24,7 +24,7 @@
     <div class="field">
       <%= f.label :email %>
       <br/>
-      <%= f.email_field :email, size: 40 %>
+      <%= f.email_field :email, size: 40, value: current_user.email %>
     </div>
     <div class="field">
       <%= f.label :Payment_type %>

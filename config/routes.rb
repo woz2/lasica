@@ -13,13 +13,13 @@ Lasica::Application.routes.draw do
   get "menu/news"
 
   resources :products
-  resources :users
   resources :sessions
+  resources :users
 
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
-  match '/my_account'=>"menu#my_account", :as => "my_account"
+  match '/my_account' => "menu#my_account", :as => "my_account"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -70,7 +70,7 @@ Lasica::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-root :to => "menu", :action => "home"
+  root :to => "menu", :action => "home"
 
   # See how all your routes lay out with "rake routes"
 

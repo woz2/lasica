@@ -1,0 +1,5 @@
+<% if logged_in? %>
+    <%= button_to 'Checkout', new_order_path, method: :get %>
+<% else %>
+    <%= button_to 'Login to checkout', login_path %>
+<% end %>

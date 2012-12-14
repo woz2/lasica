@@ -2,11 +2,15 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    if is_admin?
+      @carts = Cart.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @carts }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @carts }
+      end
+    else
+      redirect_to products_path
     end
   end
 
@@ -19,7 +23,7 @@ class CartsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @cart }
     end
-end
+  end
 
   def your_cart
     redirect_to :action => "show", :id => current_cart.id
@@ -81,7 +85,7 @@ end
     session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to products_url, notice:'Your cart is currently empty' }
+      format.html { redirect_to products_url, notice: 'Your cart is currently empty' }
       format.json { head :no_content }
     end
   end
