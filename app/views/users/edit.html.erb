@@ -1,16 +1,5 @@
-<h1>Create User</h1>
-<%= form_for(@user) do |f| %>
-    <% if @user.errors.any? %>
-        <div id="errorExplanation">
-          <h2><%= pluralize(@user.errors.count, "error") %>
-            prohibited this user from being saved:</h2>
-          <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+<h1>Editing user</h1>
+<%= form_for(current_user) do |f| %>
     <div class="field">
       <%= f.label :email %>&#42<br />
       <%= f.text_field :email %>
@@ -33,7 +22,7 @@
     </div>
     <p>&#42 Necessary fields</p>
     <div class="actions">
-      <%= f.submit "Create User"%>
+      <%= f.submit "Update user"%>
     </div>
 <% end %>
 <%= link_to 'Back', products_path %>

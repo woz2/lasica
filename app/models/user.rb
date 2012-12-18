@@ -1,7 +1,7 @@
 require 'digest'
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :hashed_password, :password
+  attr_accessible :email, :hashed_password, :password, :first_name, :middle_name, :last_name
   attr_accessor :password
   before_save :encrypt_password
   has_many :products

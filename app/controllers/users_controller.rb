@@ -26,6 +26,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    @users = User.find(params[:id])
+
+    respond_to do |format|
+      if current_user.update_attributes(params[:user])
+        format.html { redirect_to my_account_url, notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @users.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @users = User.find(params[:id])
     @users.destroy

@@ -8,7 +8,7 @@ Lasica::Application.routes.draw do
   get "users/new"
 
   get "menu/home"
-  get "menu/my_account"
+  #get "menu/my_account"
   get "menu/my_cart"
   get "menu/news"
 
@@ -19,7 +19,8 @@ Lasica::Application.routes.draw do
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
-  match '/my_account' => "menu#my_account", :as => "my_account"
+  match '/my_account' => "users#show", :as => "my_account"
+  #match '/account' => "users#show", :as => "account"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
