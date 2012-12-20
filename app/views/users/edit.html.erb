@@ -1,15 +1,15 @@
 <h1>Editing user</h1>
 <%= form_for(current_user) do |f| %>
     <div class="field">
-      <%= f.label :email %>&#42<br />
+      <%= f.label :email %><br />
       <%= f.text_field :email %>
     </div>
     <div class="field">
-      <%= f.label :password %>&#42<br />
-      <%= f.password_field :password %>
+      <%= f.label :user_name %><br />
+      <%= f.text_field :user_name %>
     </div>
     <div class="field">
-      <%= f.label :first_name %>&#42<br />
+      <%= f.label :first_name %><br />
       <%= f.text_field :first_name %>
     </div>
     <div class="field">
@@ -17,10 +17,14 @@
       <%= f.text_field :middle_name %>
     </div>
     <div class="field">
-      <%= f.label :last_name %>&#42<br />
+      <%= f.label :last_name %><br />
       <%= f.text_field :last_name %>
     </div>
-    <p>&#42 Necessary fields</p>
+    <p>Enter your password for confirmation</p>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </div>
     <div class="actions">
       <%= f.submit "Update user"%>
     </div>

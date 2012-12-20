@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       if is_admin? then
         redirect_to users_path, :notice => 'User has been successfully created.'
       else
-        redirect_to products_path, :notice => "Great, your adventure begins!"
+        redirect_to my_account_path, :notice => "Great, You have created an account! Now you can ad some more details about yourself or jump to products right on."
       end
     else
       render :action => 'new'
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if is_admin? then
       @users = User.all
     else
-      redirect_to root_path
+      redirect_to my_account_path
     end
   end
 
@@ -30,13 +30,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @users = User.find(params[:id])
   end
 
   def update
     @users = User.find(params[:id])
 
     respond_to do |format|
-      if current_user.update_attributes(params[:user])
+      if current_user.update_attributes(params[:user], :without_protection => true)
         format.html { redirect_to my_account_url, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

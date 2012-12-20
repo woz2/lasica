@@ -1,18 +1,22 @@
 require 'digest'
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :hashed_password, :password, :first_name, :middle_name, :last_name
+  attr_accessible :email, :user_name, :hashed_password, :password
   attr_accessor :password
   before_save :encrypt_password
   has_many :products
 
   validates :email,
             :uniqueness => true,
-            :length => {:within => 5..50},
+            :length => {:within => 5..64},
             :format => {:with => /^[^@][\w.-]+@[\w.-]+[.][a-z]{2,4}$/i}
+  validates :user_name,
+            :uniqueness => true,
+            :length => {:within => 4..64},
+            :format => {:with => /^[a-z0-9\-_]+$/i}
   validates :password,
             :confirmation => true,
-            :length => {:within => 4..20},
+            :length => {:within => 4..36},
             :presence => true
 
   def self.authenticate(email, password)

@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # name edition manufacturer category description details price
-Product.create(:name => 'Dixit', :manufacturer => 'Libellud', :category => 'Card game', :description => 'Nice game', :details => 'for kids', :price =>'19.90')
+Product.create(:name => 'Dixit', :manufacturer => 'Libellud', :category => 'Card game', :description => 'Nice game', :details => 'for kids', :price => '19.90')
 
 Product.create(:name => 'Agricola', :manufacturer => 'Z-Man Games', :category => 'Strategy Game', :description => 'In Agricola, you\'re a farmer in a wooden shack with your spouse and little else', :details => 'complex game', :price =>'34.00')
 
