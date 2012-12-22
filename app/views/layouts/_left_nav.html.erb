@@ -4,6 +4,7 @@
     <% if current_cart.line_items.empty? %>
         <p>Your Cart is empty</p>
     <% else %>
+        <div class="cart_title">Your Cart</div>
         <%= render :partial => 'carts/items', :locals => {:cart => current_cart} %>
         <%= render :partial => 'carts/checkout_buttons' %>
     <% end %>
@@ -11,8 +12,9 @@
   </div>
 
   <ul>
-    <li> <%= link_to "Available Games", products_path %> </li>
-    <li> <%= link_to "Home", :controller => "menu", :action => "home" %></li>
+    <li><%= link_to "Available Games", products_path %></li>
+    <li><%= link_to 'Sell your game', :controller => "products", :action => "new" %></li>
+    <li><%= link_to "Home", :controller => "menu", :action => "home" %></li>
     <% if logged_in? %>
         <li> <%= link_to "My_Account", :controller => "users", :action => "show" %></li>
     <% else %>

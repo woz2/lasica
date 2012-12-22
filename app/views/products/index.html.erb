@@ -19,6 +19,7 @@
     <th>Details</th>
     <th>Price</th>
     <th>Added by</th>
+    <th>Available quantity</th>
     <th></th>
     <th></th>
   </tr>
@@ -32,6 +33,7 @@
     <td><%= product.details %></td>
     <td><%= product.price %></td>
     <td><%= product.user_id %></td>
+    <td><%= product.quantity %></td>
     <td><%= link_to 'Show', product %></td>
     <% if current_user and current_user.admin %>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
@@ -45,5 +47,3 @@
 
 
 <br />
-
-<%= link_to 'New Product', new_product_path %>

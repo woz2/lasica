@@ -14,7 +14,7 @@
     <div class="field">
       <%= f.label :name %>
       <br/>
-      <%= f.text_field :name, size: 40, value: current_user.first_name%>
+      <%= f.text_field :name, size: 40, value: current_user.first_name + " " + current_user.last_name %>
     </div>
     <div class="field">
       <%= f.label :address %>

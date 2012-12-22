@@ -1,8 +1,14 @@
 class Product < ActiveRecord::Base
-  attr_accessible :category, :description, :details, :manufacturer, :name, :price
+  attr_accessible :category, :description, :details, :manufacturer, :name, :price, :quantity
 
   belongs_to :user
   has_many :line_items
+
+  validates :price,
+            :presence => true
+  validates :quantity,
+            :presence => true,
+            :length => {:within => 1..124}
 
   def self.search(search_query)
     if search_query

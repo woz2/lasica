@@ -1,6 +1,11 @@
 <div class="order_form">
 
   <fieldset>
+    <legend>You are ordering following items</legend>
+    <%= render :partial => 'carts/items', :locals => {:cart => current_cart} %>
+  </fieldset>
+
+  <fieldset>
 
     <legend>Please enter your details</legend>
     <%= render 'form' %>

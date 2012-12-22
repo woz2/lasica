@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(:version => 20121220021341) do
     t.string   "category"
     t.text     "description"
     t.text     "details"
-    t.float    "price"
+    t.float    "price",                        :null => false
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.integer  "user_id"
-    t.integer  "quantity",     :limit => 1024
+    t.integer  "quantity",     :limit => 1024, :null => false
   end
 
   create_table "sessions", :force => true do |t|
